@@ -1,0 +1,37 @@
+{
+  "title": "Backdrop App",
+  "name": "backdrop-app",
+  "plugins": {
+    "kalabox-plugin-backdrop": {},
+    "kalabox-plugin-drush": {}
+  },
+  "components": {
+    "db": {
+      "image": {
+        "name": "kalabox/mariadb",
+        "build": true,
+        "src": "dockerfiles/kalabox/mariadb"
+      }
+    },
+    "php": {
+      "image": {
+        "name": "kalabox/php-fpm",
+        "build": true,
+        "src": "dockerfiles/kalabox/php-fpm"
+      }
+    },
+    "web": {
+      "image": {
+        "name": "kalabox/nginx",
+        "build": true,
+        "src": "dockerfiles/kalabox/nginx"
+      },
+      "proxy": [
+        {
+          "port": "80/tcp",
+          "default": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,116 @@
+2014/11/07 13:31:22 [error] 13#0: *24 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function menu_get_custom_theme() in /src/public/core/includes/theme.inc on line 102
+PHP message: PHP Stack trace:
+PHP message: PHP   1. _backdrop_exception_handler() /src/public/core/includes/bootstrap.inc:0
+PHP message: PHP   2. _backdrop_log_error() /src/public/core/includes/bootstrap.inc:2510
+PHP message: PHP   3. theme() /src/public/core/includes/errors.inc:242
+PHP message: PHP   4. theme_get_registry() /src/public/core/includes/theme.inc:1037
+PHP message: PHP   5. backdrop_theme_initialize() /src/public/core/includes/theme.inc:281" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.1.34:9000", host: "backdrop-app.kbox"
+2014/11/07 13:31:27 [error] 13#0: *26 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function menu_get_custom_theme() in /src/public/core/includes/theme.inc on line 102
+PHP message: PHP Stack trace:
+PHP message: PHP   1. _backdrop_exception_handler() /src/public/core/includes/bootstrap.inc:0
+PHP message: PHP   2. _backdrop_log_error() /src/public/core/includes/bootstrap.inc:2510
+PHP message: PHP   3. theme() /src/public/core/includes/errors.inc:242
+PHP message: PHP   4. theme_get_registry() /src/public/core/includes/theme.inc:1037
+PHP message: PHP   5. backdrop_theme_initialize() /src/public/core/includes/theme.inc:281" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.1.34:9000", host: "backdrop-app.kbox"
+2014/11/07 13:31:29 [error] 13#0: *28 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function menu_get_custom_theme() in /src/public/core/includes/theme.inc on line 102
+PHP message: PHP Stack trace:
+PHP message: PHP   1. _backdrop_exception_handler() /src/public/core/includes/bootstrap.inc:0
+PHP message: PHP   2. _backdrop_log_error() /src/public/core/includes/bootstrap.inc:2510
+PHP message: PHP   3. theme() /src/public/core/includes/errors.inc:242
+PHP message: PHP   4. theme_get_registry() /src/public/core/includes/theme.inc:1037
+PHP message: PHP   5. backdrop_theme_initialize() /src/public/core/includes/theme.inc:281" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.1.34:9000", host: "backdrop-app.kbox"
+2014/11/07 14:03:16 [error] 14#0: *7 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function menu_get_custom_theme() in /src/public/core/includes/theme.inc on line 102
+PHP message: PHP Stack trace:
+PHP message: PHP   1. _backdrop_exception_handler() /src/public/core/includes/bootstrap.inc:0
+PHP message: PHP   2. _backdrop_log_error() /src/public/core/includes/bootstrap.inc:2510
+PHP message: PHP   3. theme() /src/public/core/includes/errors.inc:242
+PHP message: PHP   4. theme_get_registry() /src/public/core/includes/theme.inc:1037
+PHP message: PHP   5. backdrop_theme_initialize() /src/public/core/includes/theme.inc:281" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.1.109:9000", host: "backdrop-app.kbox"
+2014/11/07 14:03:20 [error] 14#0: *9 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function menu_get_custom_theme() in /src/public/core/includes/theme.inc on line 102
+PHP message: PHP Stack trace:
+PHP message: PHP   1. _backdrop_exception_handler() /src/public/core/includes/bootstrap.inc:0
+PHP message: PHP   2. _backdrop_log_error() /src/public/core/includes/bootstrap.inc:2510
+PHP message: PHP   3. theme() /src/public/core/includes/errors.inc:242
+PHP message: PHP   4. theme_get_registry() /src/public/core/includes/theme.inc:1037
+PHP message: PHP   5. backdrop_theme_initialize() /src/public/core/includes/theme.inc:281" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET /index.php HTTP/1.1", upstream: "fastcgi://172.17.1.109:9000", host: "backdrop-app.kbox"
+2014/11/07 14:03:25 [error] 14#0: *11 FastCGI sent in stderr: "Unable to open primary script: /src/public/install.php (No such file or directory)" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET /install.php HTTP/1.1", upstream: "fastcgi://172.17.1.109:9000", host: "backdrop-app.kbox"
+2014/11/07 14:03:29 [error] 14#0: *13 FastCGI sent in stderr: "Unable to open primary script: /src/public/install.php (No such file or directory)" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET /install.php HTTP/1.1", upstream: "fastcgi://172.17.1.109:9000", host: "backdrop-app.kbox"
+2014/11/07 14:04:27 [error] 14#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function menu_get_custom_theme() in /src/public/core/includes/theme.inc on line 102
+PHP message: PHP Stack trace:
+PHP message: PHP   1. _backdrop_exception_handler() /src/public/core/includes/bootstrap.inc:0
+PHP message: PHP   2. _backdrop_log_error() /src/public/core/includes/bootstrap.inc:2510
+PHP message: PHP   3. theme() /src/public/core/includes/errors.inc:242
+PHP message: PHP   4. theme_get_registry() /src/public/core/includes/theme.inc:1037
+PHP message: PHP   5. backdrop_theme_initialize() /src/public/core/includes/theme.inc:281" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.1.133:9000", host: "backdrop-app.kbox"
+2014/11/07 14:05:36 [error] 13#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function config_get() in /src/public/core/includes/errors.inc on line 151
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /src/public/core/install.php:0
+PHP message: PHP   2. install_backdrop() /src/public/core/install.php:32
+PHP message: PHP   3. install_begin_request() /src/public/core/includes/install.core.inc:74
+PHP message: PHP   4. backdrop_bootstrap() /src/public/core/includes/install.core.inc:236
+PHP message: PHP   5. _backdrop_bootstrap_configuration() /src/public/core/includes/bootstrap.inc:2415
+PHP message: PHP   6. backdrop_settings_initialize() /src/public/core/includes/bootstrap.inc:2535
+PHP message: PHP   7. require_once() /src/public/core/includes/bootstrap.inc:753
+PHP message: PHP   8. _backdrop_error_handler() /src/public/core/includes/bootstrap.inc:194
+PHP message: PHP   9. _backdrop_error_handler_real() /src/public/core/includes/bootstrap.inc:2492
+PHP message: PHP  10. _backdrop_log_error() /src/public/core/includes/errors.inc:73
+PHP message: PHP  11. error_displayable() /src/public/core/includes/errors.inc:225" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET /core/install.php HTTP/1.1", upstream: "fastcgi://172.17.1.140:9000", host: "backdrop-app.kbox"
+2014/11/07 14:05:41 [error] 13#0: *5 FastCGI sent in stderr: "Unable to open primary script: /src/public/install.php (No such file or directory)" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET /install.php HTTP/1.1", upstream: "fastcgi://172.17.1.140:9000", host: "backdrop-app.kbox"
+2014/11/07 14:05:44 [error] 13#0: *7 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function config_get() in /src/public/core/includes/errors.inc on line 151
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /src/public/index.php:0
+PHP message: PHP   2. backdrop_bootstrap() /src/public/index.php:20
+PHP message: PHP   3. _backdrop_bootstrap_configuration() /src/public/core/includes/bootstrap.inc:2415
+PHP message: PHP   4. backdrop_settings_initialize() /src/public/core/includes/bootstrap.inc:2535
+PHP message: PHP   5. require_once() /src/public/core/includes/bootstrap.inc:753
+PHP message: PHP   6. _backdrop_error_handler() /src/public/core/includes/bootstrap.inc:194
+PHP message: PHP   7. _backdrop_error_handler_real() /src/public/core/includes/bootstrap.inc:2492
+PHP message: PHP   8. _backdrop_log_error() /src/public/core/includes/errors.inc:73
+PHP message: PHP   9. error_displayable() /src/public/core/includes/errors.inc:225" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.1.140:9000", host: "backdrop-app.kbox"
+2014/11/07 14:05:54 [error] 13#0: *9 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function config_get() in /src/public/core/includes/errors.inc on line 151
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /src/public/core/install.php:0
+PHP message: PHP   2. install_backdrop() /src/public/core/install.php:32
+PHP message: PHP   3. install_begin_request() /src/public/core/includes/install.core.inc:74
+PHP message: PHP   4. backdrop_bootstrap() /src/public/core/includes/install.core.inc:236
+PHP message: PHP   5. _backdrop_bootstrap_configuration() /src/public/core/includes/bootstrap.inc:2415
+PHP message: PHP   6. backdrop_settings_initialize() /src/public/core/includes/bootstrap.inc:2535
+PHP message: PHP   7. require_once() /src/public/core/includes/bootstrap.inc:753
+PHP message: PHP   8. _backdrop_error_handler() /src/public/core/includes/bootstrap.inc:194
+PHP message: PHP   9. _backdrop_error_handler_real() /src/public/core/includes/bootstrap.inc:2492
+PHP message: PHP  10. _backdrop_log_error() /src/public/core/includes/errors.inc:73
+PHP message: PHP  11. error_displayable() /src/public/core/includes/errors.inc:225" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET /core/install.php HTTP/1.1", upstream: "fastcgi://172.17.1.140:9000", host: "backdrop-app.kbox"
+2014/11/07 14:05:56 [error] 13#0: *11 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function config_get() in /src/public/core/includes/errors.inc on line 151
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /src/public/core/install.php:0
+PHP message: PHP   2. install_backdrop() /src/public/core/install.php:32
+PHP message: PHP   3. install_begin_request() /src/public/core/includes/install.core.inc:74
+PHP message: PHP   4. backdrop_bootstrap() /src/public/core/includes/install.core.inc:236
+PHP message: PHP   5. _backdrop_bootstrap_configuration() /src/public/core/includes/bootstrap.inc:2415
+PHP message: PHP   6. backdrop_settings_initialize() /src/public/core/includes/bootstrap.inc:2535
+PHP message: PHP   7. require_once() /src/public/core/includes/bootstrap.inc:753
+PHP message: PHP   8. _backdrop_error_handler() /src/public/core/includes/bootstrap.inc:194
+PHP message: PHP   9. _backdrop_error_handler_real() /src/public/core/includes/bootstrap.inc:2492
+PHP message: PHP  10. _backdrop_log_error() /src/public/core/includes/errors.inc:73
+PHP message: PHP  11. error_displayable() /src/public/core/includes/errors.inc:225" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET /core/install.php HTTP/1.1", upstream: "fastcgi://172.17.1.140:9000", host: "backdrop-app.kbox"
+2014/11/07 14:40:35 [error] 13#0: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function menu_get_custom_theme() in /src/public/core/includes/theme.inc on line 102
+PHP message: PHP Stack trace:
+PHP message: PHP   1. _backdrop_exception_handler() /src/public/core/includes/bootstrap.inc:0
+PHP message: PHP   2. _backdrop_log_error() /src/public/core/includes/bootstrap.inc:2510
+PHP message: PHP   3. theme() /src/public/core/includes/errors.inc:242
+PHP message: PHP   4. theme_get_registry() /src/public/core/includes/theme.inc:1037
+PHP message: PHP   5. backdrop_theme_initialize() /src/public/core/includes/theme.inc:281" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.1.182:9000", host: "backdrop-app.kbox"
+2014/11/07 14:40:37 [error] 13#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function menu_get_custom_theme() in /src/public/core/includes/theme.inc on line 102
+PHP message: PHP Stack trace:
+PHP message: PHP   1. _backdrop_exception_handler() /src/public/core/includes/bootstrap.inc:0
+PHP message: PHP   2. _backdrop_log_error() /src/public/core/includes/bootstrap.inc:2510
+PHP message: PHP   3. theme() /src/public/core/includes/errors.inc:242
+PHP message: PHP   4. theme_get_registry() /src/public/core/includes/theme.inc:1037
+PHP message: PHP   5. backdrop_theme_initialize() /src/public/core/includes/theme.inc:281" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.1.182:9000", host: "backdrop-app.kbox"
+2014/11/07 14:40:39 [error] 13#0: *5 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function menu_get_custom_theme() in /src/public/core/includes/theme.inc on line 102
+PHP message: PHP Stack trace:
+PHP message: PHP   1. _backdrop_exception_handler() /src/public/core/includes/bootstrap.inc:0
+PHP message: PHP   2. _backdrop_log_error() /src/public/core/includes/bootstrap.inc:2510
+PHP message: PHP   3. theme() /src/public/core/includes/errors.inc:242
+PHP message: PHP   4. theme_get_registry() /src/public/core/includes/theme.inc:1037
+PHP message: PHP   5. backdrop_theme_initialize() /src/public/core/includes/theme.inc:281" while reading response header from upstream, client: 172.17.42.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.1.182:9000", host: "backdrop-app.kbox"
