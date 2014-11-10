@@ -3,8 +3,9 @@
   "name": "hotsauce-app",
   "profile": "hotsauce-profile-drupal7",
   "plugins": {
+    "hotsauce-plugin-drush": {},
     "hotsauce-plugin-hotsauce": {},
-    "hotsauce-plugin-drush": {}
+    "hotsauce-plugin-share": {}
   },
   "components": {
     "data": {
