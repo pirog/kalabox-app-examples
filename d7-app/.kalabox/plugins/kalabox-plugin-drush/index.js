@@ -5,8 +5,6 @@ var path = require('path');
 var _ = require('lodash');
 var vasync = require('vasync');
 
-//var argv = require('minimist')(process.argv.slice(3));
-
 module.exports = function(plugin, manager, app) {
 
   /**

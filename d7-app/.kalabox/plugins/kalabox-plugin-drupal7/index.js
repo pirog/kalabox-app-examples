@@ -1,7 +1,5 @@
 'use strict';
 
-var argv = require('minimist')(process.argv.slice(2));
-
 module.exports = function(plugin, manager, app) {
   /**
    * Run and remove an image.
