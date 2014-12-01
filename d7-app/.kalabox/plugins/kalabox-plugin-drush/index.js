@@ -39,7 +39,7 @@ module.exports = function(plugin, manager, app) {
   };
 
   // Drush wrapper: kbox drush status
-  app.manager.registerTask('drush', function(){
+  app.manager.registerTask('drush', function(done){
     var args = process.argv.slice(3);
     args.unshift('@dev');
 
@@ -47,6 +47,7 @@ module.exports = function(plugin, manager, app) {
       if (err) {
         throw err;
       }
+      done();
     });
   });
 

@@ -32,16 +32,17 @@ module.exports = function(plugin, manager, app) {
     );
   };
 
-  app.manager.registerTask('d7.dl', function(){
+  app.manager.registerTask('d7.dl', function(done){
     var cmd = ['dl', 'drupal', '-y', '--destination=/src', '--drupal-project-rename=public'];
     runRmDrush(cmd, function(err, data){
       if (err) {
         throw err;
       }
+      done();
     });
   });
 
-  app.manager.registerTask('d7.make', function(){
+  app.manager.registerTask('d7.make', function(done){
     var cmd = [
       'make',
       '/src/.kalabox/config/drush/default.make',
@@ -52,15 +53,17 @@ module.exports = function(plugin, manager, app) {
       if (err) {
         throw err;
       }
+      done();
     });
   });
 
-  app.manager.registerTask('d7.install', function(){
+  app.manager.registerTask('d7.install', function(done){
     var cmd = ['@dev', 'site-install', '-y', '--site-name=' + app.config.title, '--account-pass=kalabox'];
     runRmDrush(cmd, function(err, data){
       if (err) {
         throw err;
       }
+      done();
     });
   });
 
