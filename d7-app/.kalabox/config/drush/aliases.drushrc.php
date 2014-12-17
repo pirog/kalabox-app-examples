@@ -15,7 +15,7 @@ $aliases['dev'] = array(
               'username' => 'kalabox',
               'password' => '',
               'port' => 3306,
-              'host' => 'app.kbox',
+              'host' => 'd7-app.kbox',
               'database' => 'kalabox',
             ),
         ),
