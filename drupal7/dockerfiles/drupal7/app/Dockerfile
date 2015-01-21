@@ -18,6 +18,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get autoclean
 # Make mysql listen on the outside
 RUN sed -i "s/^bind-address/#bind-address/" /etc/mysql/my.cnf
 
+# Use kbox dirs
+RUN sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/sites-available/default
+RUN sed -i 's/DocumentRoot \/var\/www/DocumentRoot \/data\/code/' /etc/apache2/sites-available/default
+
 RUN easy_install supervisor
 ADD ./start.sh /start.sh
 ADD ./foreground.sh /etc/apache2/foreground.sh
