@@ -15,8 +15,12 @@ RUN ln -sf /bin/true /sbin/initctl
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git mysql-client mysql-server apache2 libapache2-mod-php5 python-setuptools vim php5-mysql php5-gd php5-curl
 RUN DEBIAN_FRONTEND=noninteractive apt-get autoclean
 
-# Make mysql listen on the outside
+# Set some basic config
 RUN sed -i "s/^bind-address/#bind-address/" /etc/mysql/my.cnf
+RUN sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/sites-available/default
+RUN sed -i -e "s/memory_limit = 128M/memory_limit = 512M/g" /etc/php5/apache2/php.ini
+RUN sed -i -e "s/post_max_size = 8M/post_max_size = 100M/g" /etc/php5/apache2/php.ini
+RUN sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 100M/g" /etc/php5/apache2/php.ini
 
 # Use kbox dirs
 RUN sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/sites-available/default
