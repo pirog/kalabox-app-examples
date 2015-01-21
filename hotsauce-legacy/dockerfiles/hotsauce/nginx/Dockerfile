@@ -15,8 +15,6 @@ RUN ln -s /src/config/nginx/nginx.conf /etc/nginx/nginx.conf
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /src/config/nginx/site.conf /etc/nginx/sites-enabled/default
 
-VOLUME ["/webroot"]
-
 # Define working directory.
 WORKDIR /etc/nginx
 
