@@ -6,13 +6,6 @@
     "hotsauce-plugin-share"
   ],
   "appComponents": {
-    "data": {
-      "image": {
-        "name": "hotsauce/data",
-        "build": true,
-        "src": "dockerfiles/hotsauce/data"
-      }
-    },
     "db": {
       "image": {
         "name": "kalabox/mariadb",
