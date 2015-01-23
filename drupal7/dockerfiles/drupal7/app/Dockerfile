@@ -2,7 +2,7 @@
 #
 # VERSION       1
 # DOCKER-VERSION        1
-FROM    kalabox/debian
+FROM    kalabox/debian:stable
 MAINTAINER Ricardo Amaro <mail_at_ricardoamaro.com>
 
 #RUN echo "deb http://archive.ubuntu.com/ubuntu saucy main restricted universe multiverse" > /etc/apt/sources.list
