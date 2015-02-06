@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -f /data/code/sites/default/settings.php ]; then
+if [ ! -f /data/sites/default/settings.php ]; then
   # Start mysql
   /usr/bin/mysqld_safe &
   sleep 10s
@@ -14,4 +14,5 @@ if [ ! -f /data/code/sites/default/settings.php ]; then
   killall mysqld
   sleep 10s
 fi
+
 supervisord -n

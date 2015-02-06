@@ -6,6 +6,11 @@
     "hotsauce-plugin-share"
   ],
   "appComponents": {
+    "data": {
+      "image": {
+        "name": "kalabox/data"
+      }
+    },
     "db": {
       "image": {
         "name": "kalabox/mariadb",

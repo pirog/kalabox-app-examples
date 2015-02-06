@@ -10,9 +10,7 @@
   "components": {
     "data": {
       "image": {
-        "name": "hotsauce/data",
-        "build": true,
-        "src": "dockerfiles/hotsauce/data"
+        "name": "kalabox/data"
       }
     },
     "db": {
