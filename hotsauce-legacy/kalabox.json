@@ -1,0 +1,42 @@
+{
+  "appName": "hotsauce-app",
+  "appPlugins": [
+    "hotsauce-plugin-drush",
+    "hotsauce-plugin-hotsauce",
+    "hotsauce-plugin-share"
+  ],
+  "appComponents": {
+    "data": {
+      "image": {
+        "name": "kalabox/data"
+      }
+    },
+    "db": {
+      "image": {
+        "name": "kalabox/mariadb",
+        "build": true,
+        "src": "dockerfiles/kalabox/mariadb"
+      }
+    },
+    "php": {
+      "image": {
+        "name": "hotsauce/php-fpm",
+        "build": true,
+        "src": "dockerfiles/hotsauce/php-fpm"
+      }
+    },
+    "web": {
+      "image": {
+        "name": "hotsauce/nginx",
+        "build": true,
+        "src": "dockerfiles/hotsauce/nginx"
+      },
+      "proxy": [
+        {
+          "port": "80/tcp",
+          "default": true
+        }
+      ]
+    }
+  }
+}

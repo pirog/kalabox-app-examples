@@ -1,0 +1,23 @@
+{
+  "appName": "kalabox-drupal7",
+  "appComponents": {
+    "data": {
+      "image": {
+        "name": "kalabox/data"
+      }
+    },
+    "web": {
+      "image": {
+        "name": "kalabox/drupal7",
+        "build": true,
+        "src": "dockerfiles/drupal7/app"
+      },
+      "proxy": [
+        {
+          "port": "80/tcp",
+          "default": true
+        }
+      ]
+    }
+  }
+}
