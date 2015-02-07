@@ -1,6 +1,6 @@
 # Basic LAMP stack for Drupal7
 
-FROM    kalabox/debian:stable
+FROM kalabox/debian:stable
 
 # Install things
 RUN \
@@ -18,12 +18,12 @@ RUN \
   sed -i -e "s/post_max_size = 8M/post_max_size = 100M/g" /etc/php5/apache2/php.ini && \
   sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 100M/g" /etc/php5/apache2/php.ini
 
-# Use kbox dirs
-ENV APACHE_RUN_USER root
-ENV APACHE_RUN_GROUP root
+# Use kbox dirs and docker usereszzz
 RUN \
   sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/sites-available/default && \
-  sed -i 's/DocumentRoot \/var\/www/DocumentRoot \/data/' /etc/apache2/sites-available/default
+  sed -i 's/DocumentRoot \/var\/www/DocumentRoot \/data/' /etc/apache2/sites-available/default && \
+  sed -i 's/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=root/' /etc/apache2/envvars && \
+  sed -i 's/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=root/' /etc/apache2/envvars
 
 RUN easy_install supervisor
 
