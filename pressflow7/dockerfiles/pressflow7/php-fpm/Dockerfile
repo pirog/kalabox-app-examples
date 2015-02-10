@@ -23,5 +23,6 @@ RUN rm /etc/php5/conf.d/20-xdebug.ini
 RUN ln -s /src/config/php/20-xdebug.ini /etc/php5/conf.d/20-xdebug.ini
 
 EXPOSE 9000
+EXPOSE 9001
 
 CMD ["/usr/sbin/php5-fpm", "-R"]

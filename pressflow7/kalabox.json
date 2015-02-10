@@ -1,13 +1,9 @@
 {
-  "title": "hotsauce-app",
-  "name": "hotsauce-app",
-  "profile": "hotsauce-profile-drupal7",
-  "plugins": {
-    "hotsauce-plugin-drush": {},
-    "hotsauce-plugin-hotsauce": {},
-    "hotsauce-plugin-share": {}
-  },
-  "components": {
+  "appName": "pressflow7",
+  "appPlugins": [
+    "pressflow7-plugin-env"
+  ],
+  "appComponents": {
     "data": {
       "image": {
         "name": "kalabox/data"
@@ -22,16 +18,16 @@
     },
     "php": {
       "image": {
-        "name": "hotsauce/php-fpm",
+        "name": "pressflow7/php-fpm",
         "build": true,
-        "src": "dockerfiles/hotsauce/php-fpm"
+        "src": "dockerfiles/pressflow7/php-fpm"
       }
     },
     "web": {
       "image": {
-        "name": "hotsauce/nginx",
+        "name": "pressflow7/nginx",
         "build": true,
-        "src": "dockerfiles/hotsauce/nginx"
+        "src": "dockerfiles/pressflow7/nginx"
       },
       "proxy": [
         {

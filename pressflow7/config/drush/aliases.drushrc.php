@@ -4,7 +4,7 @@
  */
 $aliases['dev'] = array(
   'uri' => 'localhost',
-  'root' => '/src/public',
+  'root' => '/data',
   'databases' =>
     array (
       'default' =>
@@ -15,7 +15,7 @@ $aliases['dev'] = array(
               'username' => 'kalabox',
               'password' => '',
               'port' => 3306,
-              'host' => 'hotsauce-app.kbox',
+              'host' => 'pressflow7.kbox',
               'database' => 'kalabox',
             ),
         ),

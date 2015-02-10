@@ -21,9 +21,7 @@ RUN \
 # Use kbox dirs and docker usereszzz
 RUN \
   sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/sites-available/default && \
-  sed -i 's/DocumentRoot \/var\/www/DocumentRoot \/data/' /etc/apache2/sites-available/default && \
-  sed -i 's/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=root/' /etc/apache2/envvars && \
-  sed -i 's/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=root/' /etc/apache2/envvars
+  sed -i 's/DocumentRoot \/var\/www/DocumentRoot \/data/' /etc/apache2/sites-available/default
 
 RUN easy_install supervisor
 
