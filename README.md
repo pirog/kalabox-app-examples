@@ -72,11 +72,25 @@ So if we wanted to connect to mariadb for our pressflow app we would just do som
 
 Be mindful that these ports can change on restart.
 
-### App Config
+## Data Containers and "SSH"
+
+Each Kalabox app uses a separate data container which is useful for sharing code between containers and the outside world. Generally your "code" will be mounted onto each container at `/data`. You can also attach to a container by running
+
+`docker exec -it kb_pressflow7_web /bin/bash`
+
+This will allow you to explore the container ssh-style.
+
+## Plugins
+
+Apps can implement specific plugins similar to the Kalabox core. Check out the pressflow7 project for an example of a very basic plugin. Also make sure you add any plugins to your `kalabox.json` so your apps knows what plugins to load.
+
+## App Config
 
 You will also see a `config` folder in the root of the pressflow app. This allows you to easily change the settings of your services. For example, go into `config/php/php.ini` and change the `memory_limit` to something else. Then a simple `kbox hotsauce stop` and `kbox hotsauce start` and your new settings are there!
 
-### App Kalabox.json
+Beware though as not all apps have this feature!
+
+## App Kalabox.json
 
 Currently the kalabox.json lets you specify which plugins and containers you want to use. Plugins and dockerfiles are looked for locally first, then in the kalabox source and finally on npm/dockerhub. Only 4 types of containers are currently supported. Additionally your `web` container is going to want set the proxy key so you can see it from outside the Kalabox VM.
 

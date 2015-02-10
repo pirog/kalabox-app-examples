@@ -6,9 +6,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "MIT License",
-  "dependencies": {
-    "lodash": "~2.4.1",
-    "vasync": "~1.6.1"
-  }
+  "license": "MIT License"
 }
