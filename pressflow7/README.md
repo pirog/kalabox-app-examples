@@ -24,7 +24,7 @@ Now actually grab the examples!
 ```
   cd ~/Desktop
   git clone https://github.com/kalabox/kalabox-app-examples.git
-  kbox # you should see "drupal7" list as an app now
+  kbox # you should see "pressflow7" list as an app now
 ```
 
 To install and run an app just go into the app folder and do something like this. We will use `pressflow7` as the example here.
