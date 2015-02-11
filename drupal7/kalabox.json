@@ -3,7 +3,7 @@
   "appComponents": {
     "data": {
       "image": {
-        "name": "kalabox/data"
+        "name": "kalabox/data:stable"
       }
     },
     "web": {
