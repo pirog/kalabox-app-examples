@@ -1,10 +1,9 @@
 {
-  "name": "hotsauce",
+  "name": "kalabox-app-example-pressflow7",
   "version": "0.0.0",
-  "description": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "MIT License"
+  "description": "A basic example to spin up the infrastructure for a Pressflow7 app.",
+  "license": "MIT License",
+  "dependencies": {
+    "kalabox-plugin-pressflow7-env": "^0.3.1"
+  }
 }

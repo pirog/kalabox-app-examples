@@ -1,7 +1,7 @@
 {
   "appName": "pressflow7",
   "appPlugins": [
-    "pressflow7-plugin-env"
+    "kalabox-plugin-pressflow7-env"
   ],
   "appComponents": {
     "data": {

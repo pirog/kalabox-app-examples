@@ -31,7 +31,6 @@ To install and run an app just go into the app folder and do something like this
 
 ```
 cd pressflow7
-npm install
 kbox install
 kbox start
 ```
