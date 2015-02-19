@@ -1,16 +1,34 @@
 {
-  "appName": "kalabox-drupal7",
+  "appName": "drupal7",
+  "appPlugins": [
+    "kalabox-plugin-pressflow7-env",
+    "kalabox-plugin-git",
+    "kalabox-plugin-drush"
+  ],
+  "pluginConf": {
+    "kalabox-plugin-drush": {
+      "drush-version": "drush6"
+    }
+  },
   "appComponents": {
     "data": {
       "image": {
         "name": "kalabox/data:stable"
       }
     },
+    "db": {
+      "image": {
+        "name": "kalabox/mariadb:stable"
+      }
+    },
+    "php": {
+      "image": {
+        "name": "kalabox/php-fpm:stable"
+      }
+    },
     "web": {
       "image": {
-        "name": "kalabox/drupal7",
-        "build": true,
-        "src": "dockerfiles/drupal7/app"
+        "name": "kalabox/nginx:stable"
       },
       "proxy": [
         {

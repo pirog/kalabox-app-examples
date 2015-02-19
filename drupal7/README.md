@@ -1,7 +1,9 @@
-Drupal7
+Drupal 7
 ===================
 
-This is a VERY VERY barebones example of a Drupal7 app running Apache, php 5.4 and mysql 5.5 in a single container. It is basically just all the recommended settings provided on [drupal.org](http://www.drupal.org). *We actually recommend using the pressflow7 app instead as this app has weird file permissions issues for now*.
+This is a nice app that runs Drupal 7 sites. It is relatively optimized for Drupal with nginx, php-fpm and mariadb all running in separate containers.
+
+It also has some nice config for APC, xdebug and other tools of that ilk. This app also has a nice Pressflow Environment plugin that sets your database config in the environment so if you are using pressflow drupal you don't need to muck with your settings.php.
 
 ## Setup
 
@@ -29,23 +31,22 @@ To install and run an app just go into the app folder and do something like this
 
 ```
 cd drupal7
-npm install
 kbox install
 kbox start
 ```
 
-Now visit `http://drupal7.kbox` in your browser. It will likely tell you FORBIDDEN. To add code to your project you should now have a directory
-at `~/kalabox/code/drupal7`. Put your code in there to do all the things. *Again the permissions here are weird so you might need to `docker exec` into `kb_drupal7_web` in order to set correct permissions for your code.
+Now visit `http://drupal7.kbox` in your browser. It will likely tell you 'no input file'. To add code to your project you should now have a directory
+at `~/kalabox/code/drupal7`. Put your code in there to do all the things.
 
 ## Getting to your Database
 
-When this app starts up it checks for a `settings.php` file and if it doesn't exist it it will create a database called `kalabox` which you can access with user: kalabox, password:kalabox. These are the creds you will want to use in your drupal install.
+This app will start with a database called `kalabox` and user `kalabox` with no password.
 
 If you are importing a site and want to directly access the database you will need to find the outside port to use. You can do this with:
 
 ```
-docker ps --all | grep kb_drupal7_web
-d21bf3937ac3        kalabox/drupal7:latest      "/bin/bash /start.sh   3 minutes ago       Up 2 minutes               0.0.0.0:49158->3306/tcp, 0.0.0.0:49159->80/tcp                                                         kb_drupal7_web
+docker ps --all | grep kb_drupal7_db
+393ecad55c84        kalabox/mariadb:latest      "mysqld_safe"          16 hours ago        Up 15 hours                0.0.0.0:49153->3306/tcp                                                                                kb_drupal7_db
 ```
 
 With this you can access your database from the outside with
@@ -53,9 +54,59 @@ With this you can access your database from the outside with
 ```
 host: drupal7.kbox
 user: kalabox
-password: kalabox
+password:
 database: kalabox
-port: 49158
+port: 49153
+```
+
+## drupal7 plugins
+
+Pressflow ships with a very basic plugin that adds a `PRESSFLOW_SETTINGS` environmental variable to your environment. Pressflow variants of Drupal can read from this
+so you don't have to set your DB creds in settings.php or during installation. If you are using this app with normal drupal you will want to use the following creds in your install:
+
+```
+database: kalabox
+user: kalabox
+password:
+host: drupal7.kbox # this is in the advanced settings
+```
+
+Here is what the plugin looks like for the curious:
+
+```js
+'use strict';
+
+module.exports = function(app, appConfig, events) {
+
+  // Events
+  events.on('pre-install-component', function(component, done) {
+
+    // Add in the pressflow magic
+    var pressflowSettings = {
+      databases: {
+        default: {
+          default: {
+            driver: 'mysql',
+            prefix : '',
+            database: 'kalabox',
+            username: 'kalabox',
+            password: '',
+            host: app.domain,
+            port: 3306,
+          }
+        }
+      },
+      conf: {
+        pressflow_smart_start: 1
+      }
+    };
+    component.installOptions.Env.push('PRESSFLOW_SETTINGS=' + JSON.stringify(pressflowSettings));
+
+    done();
+  });
+
+};
+
 ```
 
 ## Other Resources
