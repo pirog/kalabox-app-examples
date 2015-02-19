@@ -4,8 +4,8 @@
   "description": "A basic example to spin up the infrastructure for a Pressflow7 app.",
   "license": "MIT License",
   "dependencies": {
-    "kalabox-plugin-drush": "^0.3.3",
-    "kalabox-plugin-git": "^0.3.2",
+    "kalabox-plugin-drush": "^0.3.4",
+    "kalabox-plugin-git": "^0.3.4",
     "kalabox-plugin-pressflow7-env": "^0.3.1"
   }
 }
