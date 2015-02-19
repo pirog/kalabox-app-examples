@@ -7,3 +7,4 @@ node_modules
 cids
 .cids
 .boot2docker
+*.tar
