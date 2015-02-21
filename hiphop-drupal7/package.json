@@ -1,7 +1,7 @@
 {
-  "name": "kalabox-app-drupal7",
+  "name": "kalabox-app-hiphop-drupal7",
   "version": "0.0.0",
-  "description": "A simple Drupal7 app",
+  "description": "Drupal7 running on HHVM with phpfpm fallback",
   "license": "MIT License",
   "dependencies": {
     "kalabox-plugin-drush": "^0.3.6",
