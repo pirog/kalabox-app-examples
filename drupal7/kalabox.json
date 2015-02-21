@@ -1,13 +1,33 @@
 {
   "appName": "drupal7",
   "appPlugins": [
-    "kalabox-plugin-pressflow7-env",
+    "kalabox-plugin-dbenv",
     "kalabox-plugin-git",
     "kalabox-plugin-drush"
   ],
   "pluginConf": {
     "kalabox-plugin-drush": {
       "drush-version": "drush6"
+    },
+    "kalabox-plugin-dbenv": {
+      "settings": {
+        "databases": {
+          "default": {
+            "default": {
+              "driver": "mysql",
+              "prefix": "",
+              "database": "kalabox",
+              "username": "kalabox",
+              "password": "",
+              "host": "drupal7.kbox",
+              "port": 3306
+            }
+          }
+        },
+        "conf": {
+          "pressflow_smart_start": 1
+        }
+      }
     }
   },
   "appComponents": {
