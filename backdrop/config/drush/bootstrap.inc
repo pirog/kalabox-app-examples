@@ -479,7 +479,7 @@ function _drush_bootstrap_drupal_site_validate() {
   $conf_path = drush_bootstrap_value('conf_path', conf_path(TRUE, TRUE));
   $conf_file = "$conf_path/settings.php";
   if (!file_exists($conf_file)) {
-    return drush_bootstrap_error('DRUPAL_SITE_SETTINGS_NOT_FOUND', dt("Could not find a Drupal settings.php file at !file.",
+    return drush_bootstrap_error('DRUPAL_SITE_SETTINGS_NOT_FOUND', dt("Could not find a Backdrop settings.php file at !file.",
        array('!file' => $conf_file)));
   }
 
@@ -557,7 +557,7 @@ function _drush_bootstrap_drupal_configuration() {
  * phase.
  */
 function _drush_bootstrap_drupal_database_validate() {
-  if (!drush_backdrop_valid_db_credentials()) {
+  if (!drush_valid_db_credentials()) {
     return drush_bootstrap_error('DRUSH_DRUPAL_DB_ERROR');
   }
   return TRUE;
@@ -589,8 +589,6 @@ function _drush_bootstrap_drupal_full() {
     ob_end_clean();
   }
 
-  // #todo: right now hacky hacky be defining VERSION in BACKDROP_ROOT . '/includes/bootstrap.inc'
-  // what we really want is to define a "backdrop" engine
   drush_include_engine('drupal', 'environment');
 
   // If we're running on Drupal 8 or later, we provide a logger which will send
@@ -698,27 +696,15 @@ function drush_backdrop_version($drupal_root = NULL) {
           $version = BACKDROP_VERSION;
         }
       }
+      // Also load drupal compat stuff
+      // This will ensure that drush_drupal_version returns a D7 compatible
+      // response
+      // @todo: check for $settings['backdrop_drupal_compatibility'] eventually
+      $drupal_compat_path = '/core/includes/drupal.inc';
+      if (file_exists($drupal_root . $drupal_compat_path)) {
+        require_once $drupal_root . $drupal_compat_path;
+      }
     }
   }
   return $version;
-}
-
-/**
- * Tests the currently loaded database credentials to ensure a database connection can be made.
- */
-function drush_backdrop_valid_db_credentials() {
-  try {
-    $sql = drush_sql_get_class();
-    // need to spoof D7 for now
-    if (!$sqlVersion = drush_get_class('Drush\Sql\Sql', array(), array(7))) {
-      return FALSE;
-    }
-    if (!$sqlVersion->valid_credentials($sql->db_spec())) {
-      return FALSE;
-    }
-    return $sql->query('SELECT 1;');
-  }
-  catch (Exception $e) {
-    return FALSE;
-  }
 }

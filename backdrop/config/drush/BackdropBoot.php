@@ -23,7 +23,6 @@ class BackdropBoot implements Boot {
 
   function preflight() {
     // We need our constants before commandfile searching like DRUSH_BOOTSTRAP_DRUPAL_LOGIN.
-    // @todo: hacky hack this for now
     require_once __DIR__ . '/bootstrap.inc';
     require_once __DIR__ . '/command.inc';
 
