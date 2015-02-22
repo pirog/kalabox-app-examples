@@ -24,9 +24,8 @@ class BackdropBoot implements Boot {
   function preflight() {
     // We need our constants before commandfile searching like DRUSH_BOOTSTRAP_DRUPAL_LOGIN.
     // @todo: hacky hack this for now
-    // drush/lib/Drush/Boot
-    require_once '/usr/local/src/backdrush/lib/Drush/Boot/bootstrap.inc';
-    require_once '/usr/local/src/backdrush/lib/Drush/Boot/command.inc';
+    require_once __DIR__ . '/bootstrap.inc';
+    require_once __DIR__ . '/command.inc';
 
     drush_set_context('DRUSH_BOOTSTRAP_PHASE', DRUSH_BOOTSTRAP_NONE);
   }
