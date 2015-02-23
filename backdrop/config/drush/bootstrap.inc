@@ -372,10 +372,8 @@ function _drush_bootstrap_drupal_root() {
   else {
     if ($major_version == 1) {
       define('BACKDROP_ROOT', $drupal_root);
-      // This will get drush to return 7 for calls to drush_drupal_version
+      define('DRUPAL_ROOT', BACKDROP_ROOT);
       $core = BACKDROP_ROOT . '/core';
-      $conf_load = '/core/includes/config.inc';
-      require_once BACKDROP_ROOT . $conf_load;
     }
 
     // DRUSH_DRUPAL_CORE should point to the /core folder in Backdrop or to DRUPAL_ROOT
@@ -522,8 +520,8 @@ function _drush_bootstrap_drupal_site() {
  * Also override Drupal variables as per --variables option.
  */
 function _drush_bootstrap_drupal_configuration() {
-  global $conf;
   global $settings;
+  global $conf;
 
   if (drush_backdrop_major_version() == 1) {
     backdrop_bootstrap(BACKDROP_BOOTSTRAP_CONFIGURATION);
@@ -546,7 +544,8 @@ function _drush_bootstrap_drupal_configuration() {
     }
     $override[$name] = $value;
   }
-  $conf = is_array($conf) ? array_merge($conf, $override) : $conf;
+  $settings = is_array($settings) ? array_merge($settings, $override) : $conf;
+  $conf = $settings;
 }
 
 /**
@@ -696,15 +695,32 @@ function drush_backdrop_version($drupal_root = NULL) {
           $version = BACKDROP_VERSION;
         }
       }
-      // Also load drupal compat stuff
+      // Also load drupal compat stuff needed for drush to work with backdrop
       // This will ensure that drush_drupal_version returns a D7 compatible
       // response
       // @todo: check for $settings['backdrop_drupal_compatibility'] eventually
-      $drupal_compat_path = '/core/includes/drupal.inc';
-      if (file_exists($drupal_root . $drupal_compat_path)) {
-        require_once $drupal_root . $drupal_compat_path;
+      $drupal_compat_paths = array(
+        '/core/includes/drupal.inc',
+        '/core/includes/config.inc'
+      );
+      foreach ($drupal_compat_paths as $path) {
+        if (file_exists($drupal_root . $path)) {
+          require_once $drupal_root . $path;
+        }
       }
     }
   }
   return $version;
+}
+
+/**
+ * Helper function to get core compatibility constant.
+ *
+ * @return string
+ *   The Backdrop core compatibility constant.
+ */
+function drush_get_backdrop_core_compatibility() {
+  if (defined('BACKDROP_CORE_COMPATIBILITY')) {
+    return BACKDROP_CORE_COMPATIBILITY;
+  }
 }
