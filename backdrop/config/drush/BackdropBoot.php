@@ -45,6 +45,12 @@ class BackdropBoot implements Boot {
       if (drush_bootstrap_to_phase($phase)) {
         $command = drush_parse_command();
         if (is_array($command)) {
+          // For whatever reason some commands dont have correct bootstrap level
+          // info so we just do this for now.
+          // @todo: something less obviously shitty
+          if (!$command['bootstrap']) {
+            $command['bootstrap'] = DRUSH_BOOTSTRAP_MAX;
+          }
           $bootstrap_result = drush_bootstrap_to_phase($command['bootstrap']);
           drush_enforce_requirement_bootstrap_phase($command);
           drush_enforce_requirement_core($command);
