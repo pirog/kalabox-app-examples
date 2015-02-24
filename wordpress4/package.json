@@ -1,0 +1,10 @@
+{
+  "name": "kalabox-app-example-wordpress4",
+  "version": "0.0.0",
+  "description": "A basic example to spin up the infrastructure for a Wordpress4 app.",
+  "license": "MIT License",
+  "dependencies": {
+    "kalabox-plugin-drush": "0.3.7",
+    "kalabox-plugin-git": "^0.3.4"
+  }
+}

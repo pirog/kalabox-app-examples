@@ -1,0 +1,40 @@
+{
+  "appName": "wordpress4",
+  "appPlugins": [
+    "kalabox-plugin-git"
+  ],
+  "appComponents": {
+    "data": {
+      "image": {
+        "name": "kalabox/data:stable"
+      }
+    },
+    "db": {
+      "image": {
+        "name": "kalabox/mariadb:stable",
+        "build": true,
+        "src": "dockerfiles/kalabox/mariadb"
+      }
+    },
+    "php": {
+      "image": {
+        "name": "wordpress4/php-fpm",
+        "build": true,
+        "src": "dockerfiles/wordpress4/php-fpm"
+      }
+    },
+    "web": {
+      "image": {
+        "name": "wordpress4/nginx",
+        "build": true,
+        "src": "dockerfiles/wordpress4/nginx"
+      },
+      "proxy": [
+        {
+          "port": "80/tcp",
+          "default": true
+        }
+      ]
+    }
+  }
+}
