@@ -3,7 +3,8 @@
   "appPlugins": [
     "kalabox-plugin-dbenv",
     "kalabox-plugin-git",
-    "kalabox-plugin-drush"
+    "kalabox-plugin-drush",
+    "example"
   ],
   "pluginConf": {
     "kalabox-plugin-drush": {
