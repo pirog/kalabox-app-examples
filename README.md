@@ -6,79 +6,119 @@ consult the README in each folder for more pertinent info that those apps. And o
 
 ## Setup
 
-Right now you need to tell Kalabox where your apps live. If you want to play around with these examples you should do something like this first.
-
-Create `~/kalabox/kalabox.json` and add the following to it. This is a Mac OSX example with a fake user. You will want to use your own stuff.
-
-```json
-  {
-    "home": "/Users/tswift",
-    "appsRoot": "/Users/tswift/Desktop/kalabox-app-examples",
-    "sysConfRoot": "/Users/tswift/.kalabox"
-  }
-```
-
-Now actually grab the examples!
+Let grab some apps! 
 
 ```
   cd ~/Desktop
   git clone https://github.com/kalabox/kalabox-app-examples.git
-  kbox # you should see "pressflow7" and "drupal7" list as an app now
 ```
 
-To install and run an app just go into the app folder and do something like this. We will use `pressflow7` as the example here.
+To install and run an app just go into the app folder and do something like this. We will use `backdrop` as the example here.
+
+### Some Commands
+
+First check out the command this app provides
 
 ```
-cd pressflow7
-npm install
+cd backdrop
+kbox 
+
+# this will output
+config
+containers
+drush
+git
+inspect
+install
+restart
+start
+stop
+uninstall
+```
+
+Cool! All sorts of FUN COMMANDS! The big ones are `install`, `start`, `restart` `stop` and `uninstall` which all do exactly what you think they do.
+
+**`kbox config`**
+
+Will list your global and app specific config.
+
+**`kbox containers`** 
+
+Will list some info about the containers needed to run your app.
+
+**`kbox inspect`** 
+
+Will give you a lot of info about a specific container.
+
+**`kbox git`** and **`kbox drush`** are commands that are available because the backdrop example has installed the [git](https://github.com/kalabox/kalabox-plugin-git) and [drush](https://github.com/kalabox/kalabox-plugin-drush) kalabox plugins.
+
+### Installing and starting
+
+Inside your app directory run
+
+```
 kbox install
 kbox start
 ```
 
-Now visit `http://pressflow7.kbox` in your browser. It will likely tell you "No input file specified". To add code to your project you should now have a directory
-at `~/kalabox/code/pressflow7`. Put your code in there to do all the things.
+Now visit `http://backdrop.kbox` in your browser. It will likely tell you "No input file specified". To add code to your project you should now have a directory at `~/kalabox/code/pressflow7`. Put your code in there to do all the things. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:8080`
+
+Some apps may have plugins enabled to help with downloading code from specific places like github or Pantheon. Please consult the docs for these apps for help. For example backdrop uses the `git` kalabox plugin so you could run
+
+`kbox git clone myrepo.git ./` 
+
+Kalabox will forward in your ssh key and try to clone your code to the webroot.
 
 ## Scoping your containers for ports and other things
 
-In order to connect to relevant services running in kalabox, such as the DB for an app you need to run some docker commands for now. First you will want to set your
-`DOCKER_HOST` env variable so docker knows what daemon to connect to. Before that happens you will want to make sure you know the IP of your Kalabox VM. Generally this will always be 10.13.37.42 but may different in some edge cases. In order to be sure you can run:
+In order to connect to relevant services running in kalabox, such as the DB for an app you need to run some kbox commands for now. 
+
+Inside our app directory run `kbox containers` you will get output like this
 
 ```
-boot2docker --vm="Kalabox2" ip
-#10.13.37.42
-```
-
-Set the env
-
-```
-export DOCKER_HOST=tcp://10.13.37.42:2375
-```
-
-Now you can run `docker ps` inside the docker vm to see what ports are doing in your containerzzz. This will help you access your services.
-
-```
-CONTAINER ID        IMAGE                       COMMAND                CREATED             STATUS                    PORTS                                                                                                  NAMES
-bb4ea042c875        pressflow7/nginx:latest     "/root/start.sh"       15 hours ago        Up 14 hours               0.0.0.0:49156->443/tcp, 0.0.0.0:49157->80/tcp                                                          kb_pressflow7_web
-f4e0c73bdb73        pressflow7/php-fpm:latest   "/usr/sbin/php5-fpm    15 hours ago        Up 14 hours               0.0.0.0:49154->9000/tcp, 0.0.0.0:49155->9001/tcp                                                       kb_pressflow7_php
-393ecad55c84        kalabox/mariadb:latest      "mysqld_safe"          15 hours ago        Up 14 hours               0.0.0.0:49153->3306/tcp                                                                                kb_pressflow7_db
-28da8b2659e5        kalabox/data:latest         "/bin/true"            15 hours ago        Exited (0) 14 hours ago                                                                                                          kb_pressflow7_data
+{
+  "id": "470fa7a966b672bcf0c85ab7281b3572d42e9b695e88186093dec57b1afb91c5",
+  "name": "kb_backdrop_db",
+  "app": "backdrop",
+  "ports": [
+    "3306/tcp=>49153"
+  ],
+  "running": true
+}
+{
+  "id": "823e87472bd50b42a7fb7c51b5f42d41ec0b541a36b6085f8000367fafecd02f",
+  "name": "kb_backdrop_php",
+  "app": "backdrop",
+  "ports": [
+    "9000/tcp=>49154"
+  ],
+  "running": true
+}
+{
+  "id": "05071466eba2b76789dbcd66639bc5cf38e299be3b54d82592ea6ea6e6850fbd",
+  "name": "kb_backdrop_web",
+  "app": "backdrop",
+  "ports": [
+    "443/tcp=>49155",
+    "80/tcp=>49156"
+  ],
+  "running": true
+}
+{
+  "id": "4288090d00d85267c2cd7d6d460a711ef1bcc4cf720e495e89c0db0c6b1a1753",
+  "name": "kb_backdrop_data",
+  "app": "backdrop",
+  "running": false
+}
 ```
 
 So if we wanted to connect to mariadb for our pressflow app we would just do something like this using your favorite mysql client use
 
-  host: pressflow7.kbox
+  host: backdrop.kbox
   port: 49153
-  user: kalabox
+  user: kalabox (may be different on different apps)
 
 Be mindful that these ports can change on restart.
-
-## Data Containers and "SSH"
-
-Each Kalabox app uses a separate data container which is useful for sharing code between containers and the outside world. Generally your "code" will be mounted onto each container at `/data`. You can also attach to a container by running
-
-`docker exec -it kb_pressflow7_web /bin/bash`
-
-This will allow you to explore the container ssh-style.
 
 ## Plugins
 
