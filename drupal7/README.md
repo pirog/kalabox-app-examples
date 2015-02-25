@@ -47,7 +47,7 @@ If you are importing a site and want to directly access the database you will ne
 {
   "id": "05071466eba2b76789dbcd66639bc5cf38e299be3b54d82592ea6ea6e6850fbd",
   "name": "kb_drupal7_web",
-  "app": "backdrop",
+  "app": "drupal7",
   "ports": [
     "443/tcp=>49155",
     "80/tcp=>49156"
@@ -57,7 +57,7 @@ If you are importing a site and want to directly access the database you will ne
 {
   "id": "4288090d00d85267c2cd7d6d460a711ef1bcc4cf720e495e89c0db0c6b1a1753",
   "name": "kb_drupal7_data",
-  "app": "backdrop",
+  "app": "drupal7",
   "running": false
 }
 ```
