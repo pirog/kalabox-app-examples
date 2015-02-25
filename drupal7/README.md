@@ -3,7 +3,7 @@ Drupal 7
 
 This is a nice app that runs Drupal 7 sites. It is relatively optimized for Drupal with nginx, php-fpm and mariadb all running in separate containers.
 
-It also has some nice config for APC, xdebug and other tools of that ilk. This app also has a nice Pressflow Environment plugin that sets your database config in the environment so if you are using pressflow drupal you don't need to muck with your settings.php.
+It also has some nice config for APC, xdebug and other tools of that ilk. It also ships with git, drush and environment plugins so you can run drush and git commands (with ssh key forwarding) right on your app. Plus the environmental plugin injects configuration right into the apps environment so you dont need to muck with settings.php.
 
 ## Setup
 
@@ -74,7 +74,7 @@ port: 49153
 
 ## Drupal 7 plugins
 
-Pressflow ships with three basic plugins. 
+D7 ships with three basic plugins. 
 
 1. [DB Environment](https://github.com/kalabox/kalabox-plugin-dbenv)
 2. [Git](https://github.com/kalabox/kalabox-plugin-git)
