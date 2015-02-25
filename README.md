@@ -112,7 +112,7 @@ Inside our app directory run `kbox containers` you will get output like this
 }
 ```
 
-So if we wanted to connect to mariadb for our pressflow app we would just do something like this using your favorite mysql client use
+So if we wanted to connect to mariadb for our backdrop app we would just do something like this using your favorite mysql client use
 
   host: backdrop.kbox
   port: 49153
@@ -120,53 +120,74 @@ So if we wanted to connect to mariadb for our pressflow app we would just do som
 
 Be mindful that these ports can change on restart.
 
-## Plugins
+## Easily change your infrastructure config
 
-Apps can implement specific plugins similar to the Kalabox core. Check out the pressflow7 project for an example of a very basic plugin. Also make sure you add any plugins to your `kalabox.json` so your apps knows what plugins to load.
+Most kalabox apps worth their salt will make sure of shared config so users can change basic settings of common services without having to rebuild their entire container. 
 
-## App Config
+For example you will also see a `config` folder in the root of the backdrop app. This allows you to easily change the settings of your services. For example, go into `config/php/php.ini` and change the `memory_limit` to something else. Then a simple `kbox backdrop stop` and `kbox backdrop start` and your new settings are there!
 
-You will also see a `config` folder in the root of the pressflow app. This allows you to easily change the settings of your services. For example, go into `config/php/php.ini` and change the `memory_limit` to something else. Then a simple `kbox hotsauce stop` and `kbox hotsauce start` and your new settings are there!
-
-Beware though as not all apps have this feature!
+Beware though as not all apps have this feature! Consult the dockerfiles (which may be on the Docker registry) for each app to see how you can share your config like this.
 
 ## App Kalabox.json
 
-Currently the kalabox.json lets you specify which plugins and containers you want to use. Plugins and dockerfiles are looked for locally first, then in the kalabox source and finally on npm/dockerhub. Only 4 types of containers are currently supported. Additionally your `web` container is going to want set the proxy key so you can see it from outside the Kalabox VM.
+Currently the kalabox.json lets you specify which plugins and containers you want to use. It also allows you to specify some plugin config. Plugins and dockerfiles are looked for locally first, then in the kalabox source and finally on npm/dockerhub. Additionally your `web` container is going to want set the proxy key so you can see it from outside the Kalabox VM.
 
 Please check out each app for more info on specifics.
 
 ```json
 {
-  "appName": "pressflow7",
+  "appName": "hiphop-drupal7",
   "appPlugins": [
-    "pressflow7-plugin-env"
+    "kalabox-plugin-dbenv",
+    "kalabox-plugin-git",
+    "kalabox-plugin-drush"
   ],
+  "pluginConf": {
+    "kalabox-plugin-drush": {
+      "drush-version": "drush6"
+    },
+    "kalabox-plugin-dbenv": {
+      "settings": {
+        "databases": {
+          "default": {
+            "default": {
+              "driver": "mysql",
+              "prefix": "",
+              "database": "kalabox",
+              "username": "kalabox",
+              "password": "",
+              "host": "hiphop-drupal7.kbox",
+              "port": 3306
+            }
+          }
+        },
+        "conf": {
+          "pressflow_smart_start": 1
+        }
+      }
+    }
+  },
   "appComponents": {
     "data": {
       "image": {
-        "name": "kalabox/data"
+        "name": "kalabox/data:stable"
       }
     },
     "db": {
       "image": {
-        "name": "kalabox/mariadb",
-        "build": true,
-        "src": "dockerfiles/kalabox/mariadb"
+        "name": "kalabox/mariadb:stable"
       }
     },
-    "php": {
+    "hhvm": {
       "image": {
-        "name": "pressflow7/php-fpm",
-        "build": true,
-        "src": "dockerfiles/pressflow7/php-fpm"
+        "name": "brunoric/hhvm:deb"
       }
     },
     "web": {
       "image": {
-        "name": "pressflow7/nginx",
+        "name": "pirog/nginx:stable",
         "build": true,
-        "src": "dockerfiles/pressflow7/nginx"
+        "src": "dockerfiles/nginx"
       },
       "proxy": [
         {
@@ -178,6 +199,47 @@ Please check out each app for more info on specifics.
   }
 }
 ```
+
+Here is the kalabox.json file for the HipHop Drupal 7 app. It uses three plugins. We can tell the app to use drush6 by default with 
+
+```json
+    "kalabox-plugin-drush": {
+      "drush-version": "drush6"
+    },
+```
+
+And to set app configuration in the environment with 
+
+```json
+"kalabox-plugin-dbenv": {
+      "settings": {
+        "databases": {
+          "default": {
+            "default": {
+              "driver": "mysql",
+              "prefix": "",
+              "database": "kalabox",
+              "username": "kalabox",
+              "password": "",
+              "host": "hiphop-drupal7.kbox",
+              "port": 3306
+            }
+          }
+        },
+        "conf": {
+          "pressflow_smart_start": 1
+        }
+      }
+    }
+```
+
+We are pulling 3 of our containers from the Docker registry but using a local dockerfile to build the HHVM container.
+
+## Plugins
+
+Apps can implement plugins similar to the Kalabox core. Check out the backdrop project for an example of some very basic plugins. You can also check out [NPM](https://www.npmjs.com/search?q=kalabox-plugin) for other plugin examples. Generally plugins will go in the `plugins` folder or `node_modules` if you are using an external plugin. Also make sure you add any plugins to your `kalabox.json` so your apps knows what plugins to load. External plugins are just node modules so you can install them with `npm install kalabox-plugin-drush --save`.
+
+[Read more about plugins](https://github.com/kalabox/kalabox/wiki/Plugin-System)
 
 ## Other Resources
 
