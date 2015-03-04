@@ -23,7 +23,7 @@ Now visit `http://backdrop.kbox` in your browser. It will likely tell you 'no in
 
 This app will start with a database called `kalabox` and user `kalabox` with no password.
 
-If you are importing a site and want to directly access the database you will need to find the outside port to use. You can do this by running `kbox containers`. If you are adding a large amount of code you might want to check on the status of syncthing over at 10.13.37.42:8080
+If you are importing a site and want to directly access the database you will need to find the outside port to use. You can do this by running `kbox containers`. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:60008`
 
 ```json
 {
