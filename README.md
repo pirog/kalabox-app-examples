@@ -61,7 +61,7 @@ kbox install
 kbox start
 ```
 
-Now visit `http://backdrop.kbox` in your browser. It will likely tell you "No input file specified". To add code to your project you should now have a directory at `~/kalabox/code/pressflow7`. Put your code in there to do all the things. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:8080`
+Now visit `http://backdrop.kbox` in your browser. It will likely tell you "No input file specified". To add code to your project you should now have a directory at `~/kalabox/code/pressflow7`. Put your code in there to do all the things. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:60008`
 
 Some apps may have plugins enabled to help with downloading code from specific places like github or Pantheon. Please consult the docs for these apps for help. For example backdrop uses the `git` kalabox plugin so you could run
 
