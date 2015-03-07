@@ -72,9 +72,15 @@ database: kalabox
 port: 49153
 ```
 
+You can import the DB via the CLI like this (when you have a local copy of said DB as well):
+
+```
+mysql -u kalabox -h example.kbox -P 49153 kalabox < ~/path/to/db.sql
+```
+
 ## Backdrop plugins
 
-Backdrop ships with three basic plugins. 
+Backdrop ships with three basic plugins.
 
 1. [DB Environment](https://github.com/kalabox/kalabox-plugin-dbenv)
 2. [Git](https://github.com/kalabox/kalabox-plugin-git)
