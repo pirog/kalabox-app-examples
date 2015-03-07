@@ -72,9 +72,16 @@ database: kalabox
 port: 49153
 ```
 
+You can import the DB via the CLI like this (when you have a local copy of said DB as well):
+Make sure that you run kbox containers prior to this to get the port number as they change.
+
+```
+mysql -u kalabox -h example.kbox -P 49153 kalabox < ~/path/to/db.sql
+```
+
 ## Drupal 7 plugins
 
-D7 ships with three basic plugins. 
+D7 ships with three basic plugins.
 
 1. [DB Environment](https://github.com/kalabox/kalabox-plugin-dbenv)
 2. [Git](https://github.com/kalabox/kalabox-plugin-git)
