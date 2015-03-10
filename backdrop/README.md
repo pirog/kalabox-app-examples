@@ -17,7 +17,7 @@ kbox install
 kbox start
 ```
 
-Now visit `http://backdrop.kbox` in your browser. It will likely tell you 'no input file'. To add code to your project you should now have a directory at `~/kalabox/code/backdrop`. Put your code in there to do all the things.
+Now visit `http://backdrop.kbox` in your browser. It will likely tell you 'no input file'. To add code to your project you should now have a directory at called `code` inside of your app directory. Put your code in there to do all the things.
 
 ## Getting to your Database
 

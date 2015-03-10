@@ -6,7 +6,7 @@ consult the README in each folder for more pertinent info that those apps. And o
 
 ## Setup
 
-Let grab some apps! 
+Let grab some apps!
 
 ```
   cd ~/Desktop
@@ -21,7 +21,7 @@ First check out the command this app provides
 
 ```
 cd backdrop
-kbox 
+kbox
 
 # this will output
 config
@@ -42,11 +42,11 @@ Cool! All sorts of FUN COMMANDS! The big ones are `install`, `start`, `restart` 
 
 Will list your global and app specific config.
 
-**`kbox containers`** 
+**`kbox containers`**
 
 Will list some info about the containers needed to run your app.
 
-**`kbox inspect`** 
+**`kbox inspect`**
 
 Will give you a lot of info about a specific container.
 
@@ -61,17 +61,17 @@ kbox install
 kbox start
 ```
 
-Now visit `http://backdrop.kbox` in your browser. It will likely tell you "No input file specified". To add code to your project you should now have a directory at `~/kalabox/code/pressflow7`. Put your code in there to do all the things. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:60008`
+Now visit `http://backdrop.kbox` in your browser. It will likely tell you "No input file specified". To add code to your project you should now have a directory at called `code` inside of your app directory. Put your code in there to do all the things. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:60008`
 
 Some apps may have plugins enabled to help with downloading code from specific places like github or Pantheon. Please consult the docs for these apps for help. For example backdrop uses the `git` kalabox plugin so you could run
 
-`kbox git clone myrepo.git ./` 
+`kbox git clone myrepo.git ./`
 
 Kalabox will forward in your ssh key and try to clone your code to the webroot.
 
 ## Scoping your containers for ports and other things
 
-In order to connect to relevant services running in kalabox, such as the DB for an app you need to run some kbox commands for now. 
+In order to connect to relevant services running in kalabox, such as the DB for an app you need to run some kbox commands for now.
 
 Inside our app directory run `kbox containers` you will get output like this
 
@@ -122,7 +122,7 @@ Be mindful that these ports can change on restart.
 
 ## Easily change your infrastructure config
 
-Most kalabox apps worth their salt will make sure of shared config so users can change basic settings of common services without having to rebuild their entire container. 
+Most kalabox apps worth their salt will make sure of shared config so users can change basic settings of common services without having to rebuild their entire container.
 
 For example you will also see a `config` folder in the root of the backdrop app. This allows you to easily change the settings of your services. For example, go into `config/php/php.ini` and change the `memory_limit` to something else. Then a simple `kbox backdrop stop` and `kbox backdrop start` and your new settings are there!
 
@@ -200,7 +200,7 @@ Please check out each app for more info on specifics.
 }
 ```
 
-Here is the kalabox.json file for the HipHop Drupal 7 app. It uses three plugins. We can tell the app to use drush6 by default with 
+Here is the kalabox.json file for the HipHop Drupal 7 app. It uses three plugins. We can tell the app to use drush6 by default with
 
 ```json
     "kalabox-plugin-drush": {
@@ -208,7 +208,7 @@ Here is the kalabox.json file for the HipHop Drupal 7 app. It uses three plugins
     },
 ```
 
-And to set app configuration in the environment with 
+And to set app configuration in the environment with
 
 ```json
 "kalabox-plugin-dbenv": {

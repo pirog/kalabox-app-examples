@@ -15,7 +15,7 @@ kbox install
 kbox start
 ```
 
-Now visit `http://hiphop-drupal7.kbox` in your browser. It will likely tell you 'no input file'. To add code to your project you should now have a directory at `~/kalabox/code/hiphop-drupal7`. Put your code in there to do all the things. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:60008`
+Now visit `http://hiphop-drupal7.kbox` in your browser. It will likely tell you 'no input file'. To add code to your project you should now have a directory at called `code` inside of your app directory. Put your code in there to do all the things. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:60008`
 
 ## Getting to your Database
 
