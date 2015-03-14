@@ -75,7 +75,7 @@ In order to connect to relevant services running in kalabox, such as the DB for 
 
 Inside our app directory run `kbox containers` you will get output like this
 
-```
+```json
 {
   "id": "470fa7a966b672bcf0c85ab7281b3572d42e9b695e88186093dec57b1afb91c5",
   "name": "kb_backdrop_db",
