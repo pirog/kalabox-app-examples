@@ -1,11 +1,11 @@
 {
   "name": "kalabox-app-hiphop-drupal7",
   "version": "0.0.0",
-  "description": "Drupal7 running on HHVM with phpfpm fallback",
+  "description": "Drupal7 running on HHVM.",
   "license": "MIT License",
   "dependencies": {
     "kalabox-plugin-dbenv": "^0.3.4",
-    "kalabox-plugin-drush": "^0.3.11",
-    "kalabox-plugin-git": "^0.3.7"
+    "kalabox-plugin-drush": "^0.3.12",
+    "kalabox-plugin-git": "^0.3.8"
   }
 }

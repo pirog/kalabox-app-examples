@@ -7,7 +7,7 @@
   ],
   "pluginConf": {
     "kalabox-plugin-drush": {
-      "drush-version": "drush7"
+      "drush-version": "drush6"
     },
     "kalabox-plugin-dbenv": {
       "settings": {
