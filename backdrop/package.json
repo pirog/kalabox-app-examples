@@ -4,8 +4,8 @@
   "description": "A simple Backdrop app",
   "license": "MIT License",
   "dependencies": {
-    "kalabox-plugin-dbenv": "^0.3.4",
-    "kalabox-plugin-drush": "^0.3.12",
-    "kalabox-plugin-git": "^0.3.8"
+    "kalabox-plugin-dbenv": "latest",
+    "kalabox-plugin-drush": "latest",
+    "kalabox-plugin-git": "latest"
   }
 }
