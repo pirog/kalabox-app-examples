@@ -79,6 +79,13 @@ Make sure that you run kbox containers prior to this to get the port number as t
 mysql -u kalabox -h example.kbox -P 49153 kalabox < ~/path/to/db.sql
 ```
 
+If you are importing an especially large DB you may want to consider doing something like this
+instead
+
+```
+gunzip < ~/path/to/db.sql | mysql -u kalabox -h example.kbox -P 49153 kalabox
+```
+
 ## Drupal 7 plugins
 
 D7 ships with three basic plugins.
