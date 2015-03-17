@@ -5,6 +5,10 @@
     "kalabox-plugin-git",
     "kalabox-plugin-drush"
   ],
+  "shareIgnores": [
+    "files",
+    ".git"
+  ],
   "pluginConf": {
     "kalabox-plugin-drush": {
       "drush-version": "backdrush"
