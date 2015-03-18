@@ -6,6 +6,7 @@
   "dependencies": {
     "kalabox-plugin-dbenv": "latest",
     "kalabox-plugin-drush": "latest",
-    "kalabox-plugin-git": "latest"
+    "kalabox-plugin-git": "latest",
+    "kalabox-plugin-rsync": "latest"
   }
 }

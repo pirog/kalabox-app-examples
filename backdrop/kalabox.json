@@ -3,10 +3,11 @@
   "appPlugins": [
     "kalabox-plugin-dbenv",
     "kalabox-plugin-git",
-    "kalabox-plugin-drush"
+    "kalabox-plugin-drush",
+    "kalabox-plugin-rsync"
   ],
   "shareIgnores": [
-    "files",
+    "files/*",
     ".git"
   ],
   "pluginConf": {
