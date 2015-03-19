@@ -1,9 +1,9 @@
-Backdrop
+Drupal 7 PHP-FPM
 ===================
 
-This is a nice app that runs Backdrop CMS sites. It is relatively optimized for BD with a php-fpm and nginx appserver and mariadb running in a separate container
+This is a nice app that runs Drupal 7 sites. It is relatively optimized for Drupal with nginx, php-fpm and mariadb all running in separate containers. This means the php upstream is NOT on the same server as nginx which is interesting.
 
-It also has some nice config for APC, xdebug and other tools of that ilk. It also ships with git, drush and environment plugins so you can run drush and git commands (with ssh key forwarding) right on your app. Plus the environmental plugin injects configuration right into the apps environment so you dont need to muck with settings.php.
+It also has some nice config for APC and other tools of that ilk. It also ships with git, drush and environment plugins so you can run drush and git commands (with ssh key forwarding) right on your app. Plus the environmental plugin injects configuration right into the apps environment so you dont need to muck with settings.php.
 
 ## Setup
 
@@ -12,12 +12,12 @@ Grab the example, install and start the app!
 ```
 cd ~/Desktop
 git clone https://github.com/kalabox/kalabox-app-examples.git
-cd backdrop
+cd phpfpm-drupal7
 kbox install
 kbox start
 ```
 
-Now visit `http://backdrop.kbox` in your browser. It will likely tell you 'no input file'. To add code to your project you should now have a directory at called `code` inside of your app directory. Put your code in there to do all the things.
+Now visit `http://phpfpm-drupal7.kbox` in your browser. It will likely tell you 'no input file'. To add code to your project you should now have a directory at called `code` inside of your app directory. Put your code in there to do all the things.
 
 ## Getting to your Database
 
@@ -28,17 +28,26 @@ If you are importing a site and want to directly access the database you will ne
 ```json
 {
   "id": "470fa7a966b672bcf0c85ab7281b3572d42e9b695e88186093dec57b1afb91c5",
-  "name": "kb_backdrop_db",
-  "app": "backdrop",
+  "name": "kb_phpfpm-drupal7_db",
+  "app": "phpfpm-drupal7",
   "ports": [
     "3306/tcp=>49153"
   ],
   "running": true
 }
 {
+  "id": "823e87472bd50b42a7fb7c51b5f42d41ec0b541a36b6085f8000367fafecd02f",
+  "name": "kb_phpfpm-drupal7_php",
+  "app": "phpfpm-drupal7",
+  "ports": [
+    "9000/tcp=>49154"
+  ],
+  "running": true
+}
+{
   "id": "05071466eba2b76789dbcd66639bc5cf38e299be3b54d82592ea6ea6e6850fbd",
-  "name": "kb_backdrop_appserver",
-  "app": "backdrop",
+  "name": "kb_phpfpm-drupal7_web",
+  "app": "phpfpm-drupal7",
   "ports": [
     "443/tcp=>49155",
     "80/tcp=>49156"
@@ -47,8 +56,8 @@ If you are importing a site and want to directly access the database you will ne
 }
 {
   "id": "4288090d00d85267c2cd7d6d460a711ef1bcc4cf720e495e89c0db0c6b1a1753",
-  "name": "kb_backdrop_data",
-  "app": "backdrop",
+  "name": "kb_phpfpm-drupal7_data",
+  "app": "phpfpm-drupal7",
   "running": false
 }
 ```
@@ -56,7 +65,7 @@ If you are importing a site and want to directly access the database you will ne
 With this you can access your database from the outside with
 
 ```
-host: backdrop.kbox
+host: phpfpm-drupal7.kbox
 user: kalabox
 password:
 database: kalabox
@@ -77,46 +86,15 @@ instead
 gunzip < ~/path/to/db.sql | mysql -u kalabox -h example.kbox -P 49153 kalabox
 ```
 
-## Backdrop plugins
+## Drupal 7 plugins
 
-Backdrop ships with three basic plugins.
+D7 ships with three basic plugins.
 
 1. [DB Environment](https://github.com/kalabox/kalabox-plugin-dbenv)
 2. [Git](https://github.com/kalabox/kalabox-plugin-git)
 3. [Drush](https://github.com/kalabox/kalabox-plugin-drush)
 
 Please read about each to see the fun config options they have!
-
-## Debugging
-
-xdebug is set up on your php appserver. Here is an example SublimeText 2 config.
-You may need to launch it in the browser the first time.
-
-```json
-{
-  "folders":
-  [
-    {
-      "path": "/local/path/to/my/code"
-    }
-  ],
-  "settings":
-  {
-    "xdebug":
-    {
-      "max_children": 64,
-      "max_depth": 16,
-      "pretty_output": true,
-      "path_mapping":
-      {
-        "/data/": "/local/path/to/my/code/"
-      },
-      "port": 9001,
-      "url": "http://mysite.kbox/"
-    }
-  }
-}
-```
 
 ## Other Resources
 

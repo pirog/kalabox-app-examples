@@ -1,0 +1,12 @@
+{
+  "name": "kalabox-app-drupal7",
+  "version": "0.0.0",
+  "description": "A simple Drupal7 app",
+  "license": "MIT License",
+  "dependencies": {
+    "kalabox-plugin-dbenv": "latest",
+    "kalabox-plugin-drush": "latest",
+    "kalabox-plugin-git": "latest",
+    "kalabox-plugin-rsync": "latest"
+  }
+}

@@ -50,14 +50,9 @@
         "name": "kalabox/mariadb:stable"
       }
     },
-    "php": {
+    "appserver": {
       "image": {
-        "name": "kalabox/php-fpm:stable"
-      }
-    },
-    "web": {
-      "image": {
-        "name": "kalabox/nginx:stable"
+        "name": "kalabox/php-appserver:stable"
       },
       "proxy": [
         {

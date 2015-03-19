@@ -1,7 +1,7 @@
 Drupal 7
 ===================
 
-This is a nice app that runs Drupal 7 sites. It is relatively optimized for Drupal with nginx, php-fpm and mariadb all running in separate containers.
+This is a simple app that runs Drupal 7 sites. It is relatively optimized for Drupal with a php appserver running nginx and a separate maria db container.
 
 It also has some nice config for APC, xdebug and other tools of that ilk. It also ships with git, drush and environment plugins so you can run drush and git commands (with ssh key forwarding) right on your app. Plus the environmental plugin injects configuration right into the apps environment so you dont need to muck with settings.php.
 
@@ -37,16 +37,7 @@ If you are importing a site and want to directly access the database you will ne
 }
 {
   "id": "823e87472bd50b42a7fb7c51b5f42d41ec0b541a36b6085f8000367fafecd02f",
-  "name": "kb_drupal7_php",
-  "app": "drupal7",
-  "ports": [
-    "9000/tcp=>49154"
-  ],
-  "running": true
-}
-{
-  "id": "05071466eba2b76789dbcd66639bc5cf38e299be3b54d82592ea6ea6e6850fbd",
-  "name": "kb_drupal7_web",
+  "name": "kb_drupal7_appserver",
   "app": "drupal7",
   "ports": [
     "443/tcp=>49155",
@@ -95,6 +86,37 @@ D7 ships with three basic plugins.
 3. [Drush](https://github.com/kalabox/kalabox-plugin-drush)
 
 Please read about each to see the fun config options they have!
+
+## Debugging
+
+xdebug is set up on your php appserver. Here is an example SublimeText 2 config.
+You may need to launch it in the browser the first time.
+
+```json
+{
+  "folders":
+  [
+    {
+      "path": "/local/path/to/my/code"
+    }
+  ],
+  "settings":
+  {
+    "xdebug":
+    {
+      "max_children": 64,
+      "max_depth": 16,
+      "pretty_output": true,
+      "path_mapping":
+      {
+        "/data/": "/local/path/to/my/code/"
+      },
+      "port": 9001,
+      "url": "http://mysite.kbox/"
+    }
+  }
+}
+```
 
 ## Other Resources
 
