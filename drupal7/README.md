@@ -104,9 +104,6 @@ You may need to launch it in the browser the first time.
   {
     "xdebug":
     {
-      "max_children": 64,
-      "max_depth": 16,
-      "pretty_output": true,
       "path_mapping":
       {
         "/data/": "/local/path/to/my/code/"
