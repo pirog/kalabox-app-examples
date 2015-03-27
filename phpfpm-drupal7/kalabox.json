@@ -1,5 +1,5 @@
 {
-  "appName": "drupal7",
+  "appName": "php-drupal7",
   "appPlugins": [
     "kalabox-plugin-dbenv",
     "kalabox-plugin-git",
@@ -24,7 +24,7 @@
               "database": "kalabox",
               "username": "kalabox",
               "password": "",
-              "host": "drupal7.kbox",
+              "host": "php-drupal7.kbox",
               "port": 3306
             }
           }

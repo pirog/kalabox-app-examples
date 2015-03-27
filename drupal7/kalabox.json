@@ -35,8 +35,8 @@
       }
     },
     "kalabox-plugin-git": {
-      "git-username": "My Name",
-      "git-email": "myemail@something.com"
+      "git-username": "Joe Blow",
+      "git-email": "joe@blow.com"
     }
   },
   "appComponents": {
