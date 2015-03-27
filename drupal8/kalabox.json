@@ -1,0 +1,65 @@
+{
+  "appName": "drupal8",
+  "appPlugins": [
+    "kalabox-plugin-dbenv",
+    "kalabox-plugin-git",
+    "kalabox-plugin-drush",
+    "kalabox-plugin-rsync"
+  ],
+  "shareIgnores": [
+    "sites/default/files/*",
+    ".git"
+  ],
+  "pluginConf": {
+    "kalabox-plugin-drush": {
+      "drush-version": "drush7"
+    },
+    "kalabox-plugin-dbenv": {
+      "settings": {
+        "databases": {
+          "default": {
+            "default": {
+              "driver": "mysql",
+              "prefix": "",
+              "database": "kalabox",
+              "username": "kalabox",
+              "password": "",
+              "host": "drupal8.kbox",
+              "port": 3306
+            }
+          }
+        },
+        "conf": {
+          "pressflow_smart_start": 1
+        }
+      }
+    },
+    "kalabox-plugin-git": {
+      "git-username": "My Name",
+      "git-email": "myemail@something.com"
+    }
+  },
+  "appComponents": {
+    "data": {
+      "image": {
+        "name": "kalabox/data:stable"
+      }
+    },
+    "db": {
+      "image": {
+        "name": "kalabox/mariadb:stable"
+      }
+    },
+    "appserver": {
+      "image": {
+        "name": "kalabox/php-appserver:stable"
+      },
+      "proxy": [
+        {
+          "port": "80/tcp",
+          "default": true
+        }
+      ]
+    }
+  }
+}
