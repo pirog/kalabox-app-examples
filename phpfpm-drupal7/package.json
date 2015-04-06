@@ -4,9 +4,9 @@
   "description": "A simple Drupal7 app",
   "license": "MIT License",
   "dependencies": {
-    "kalabox-plugin-dbenv": "latest",
-    "kalabox-plugin-drush": "latest",
-    "kalabox-plugin-git": "latest",
-    "kalabox-plugin-rsync": "latest"
+    "kalabox-plugin-dbenv": "~0.5.1",
+    "kalabox-plugin-drush": "~0.5.1",
+    "kalabox-plugin-git": "~0.5.1",
+    "kalabox-plugin-rsync": "~0.5.1"
   }
 }
