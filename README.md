@@ -23,51 +23,55 @@ First check out the command this app provides
 cd backdrop
 kbox
 
-# this will output
-config
-containers
-drush
-git
-inspect
-install
-restart
-start
-stop
-uninstall
+Usage: kbox <command> [-- <options>]
+
+Examples:
+  kbox apps -- -h
+  kbox config -- --verbose
+
+Commands:
+  apps              Display list of apps.
+  config            Display the kbox application's configuration.
+  containers        Display list of application's installed containers.
+  drush             Run drush commands.
+  git               Run git commands.
+  inspect           Inspect containers.
+  install           Install a kbox application.
+  restart           Stop and then start a running kbox application.
+  rsync             Run rsync commands.
+  start             Start an installed kbox application.
+  stop              Stop a running kbox application.
+  uninstall         Uninstall an installed kbox application
+  down              Bring kbox container engine down.
+  ip                Display kbox container engine's ip address.
+  provision         Install or update kbox and it's dependencies.
+  shields           Shield generator operation.
+  status            Display status of kbox container engine.
+  up                Bring kbox container engine up.
+  version           Display the kbox version.
+
+Options:
+  -h, --help     Display help message.                                 [boolean]
+  -v, --verbose  Use verbose output.                                   [boolean]
 ```
-
-Cool! All sorts of FUN COMMANDS! The big ones are `install`, `start`, `restart` `stop` and `uninstall` which all do exactly what you think they do.
-
-**`kbox config`**
-
-Will list your global and app specific config.
-
-**`kbox containers`**
-
-Will list some info about the containers needed to run your app.
-
-**`kbox inspect`**
-
-Will give you a lot of info about a specific container.
-
-**`kbox git`** and **`kbox drush`** are commands that are available because the backdrop example has installed the [git](https://github.com/kalabox/kalabox-plugin-git) and [drush](https://github.com/kalabox/kalabox-plugin-drush) kalabox plugins.
 
 ### Installing and starting
 
 Inside your app directory run
 
 ```
+npm install
 kbox install
 kbox start
 ```
 
-Now visit `http://backdrop.kbox` in your browser. It will likely tell you "No input file specified". To add code to your project you should now have a directory at called `code` inside of your app directory. Put your code in there to do all the things. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:60008`
+Now visit `http://backdrop.kbox` in your browser. It will likely tell you "No input file specified". To add code to your project you should now have a directory called `code` inside of your app directory. Put your code in there to do all the things. If you are adding a large amount of code you might want to check on the status of syncthing over at `10.13.37.42:60008`
 
 Some apps may have plugins enabled to help with downloading code from specific places like github or Pantheon. Please consult the docs for these apps for help. For example backdrop uses the `git` kalabox plugin so you could run
 
 `kbox git clone myrepo.git ./`
 
-Kalabox will forward in your ssh key and try to clone your code to the webroot.
+Kalabox will forward in your ssh key and try to clone your code to the containers webroot.
 
 ## Scoping your containers for ports and other things
 
@@ -211,7 +215,7 @@ Here is the kalabox.json file for the HipHop Drupal 7 app. It uses three plugins
 And to set app configuration in the environment with
 
 ```json
-"kalabox-plugin-dbenv": {
+  "kalabox-plugin-dbenv": {
       "settings": {
         "databases": {
           "default": {

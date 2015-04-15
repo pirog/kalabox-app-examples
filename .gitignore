@@ -9,3 +9,4 @@ cids
 .boot2docker
 *.tar
 code
+string

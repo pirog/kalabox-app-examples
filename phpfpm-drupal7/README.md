@@ -13,6 +13,7 @@ Grab the example, install and start the app!
 cd ~/Desktop
 git clone https://github.com/kalabox/kalabox-app-examples.git
 cd phpfpm-drupal7
+npm install
 kbox install
 kbox start
 ```
