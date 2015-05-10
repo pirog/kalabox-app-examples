@@ -1,9 +1,0 @@
-.DS_Store
-.idea/
-*.log
-cache
-coverage
-node_modules
-.cids
-.boot2docker
-*.tar

@@ -12,7 +12,7 @@ cd ~/Desktop
 git clone https://github.com/kalabox/kalabox-app-examples.git
 cd hiphop-drupal7
 npm install
-kbox install
+kbox install -- --build-local
 kbox start
 ```
 

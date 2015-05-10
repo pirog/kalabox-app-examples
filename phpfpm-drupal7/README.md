@@ -55,12 +55,6 @@ If you are importing a site and want to directly access the database you will ne
   ],
   "running": true
 }
-{
-  "id": "4288090d00d85267c2cd7d6d460a711ef1bcc4cf720e495e89c0db0c6b1a1753",
-  "name": "kb_phpfpm-drupal7_data",
-  "app": "phpfpm-drupal7",
-  "running": false
-}
 ```
 
 With this you can access your database from the outside with
