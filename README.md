@@ -108,12 +108,6 @@ Inside our app directory run `kbox containers` you will get output like this
   ],
   "running": true
 }
-{
-  "id": "4288090d00d85267c2cd7d6d460a711ef1bcc4cf720e495e89c0db0c6b1a1753",
-  "name": "kb_backdrop_data",
-  "app": "backdrop",
-  "running": false
-}
 ```
 
 So if we wanted to connect to mariadb for our backdrop app we would just do something like this using your favorite mysql client use
