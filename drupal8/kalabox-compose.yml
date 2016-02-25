@@ -1,3 +1,11 @@
+data:
+  image: busybox
+  volumes:
+    - $KALABOX_APP_ROOT_BIND/files:/media:rw
+    - /certs
+    - /sql
+    - /code
+    - /backups
 appserver:
   image: drupal
   links:
