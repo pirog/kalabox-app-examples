@@ -1,0 +1,4 @@
+appserver:
+  image: drupal
+  ports:
+    - "80"
