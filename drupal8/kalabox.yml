@@ -1,2 +1,7 @@
 name: eight
 type: drupal8
+pluginconfig:
+  services:
+    appserver:
+      - port: 80/tcp
+        default: true
