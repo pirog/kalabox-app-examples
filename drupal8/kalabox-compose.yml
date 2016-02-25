@@ -1,4 +1,13 @@
 appserver:
   image: drupal
+  links:
+    - db:db
   ports:
     - "80"
+db:
+  image: mysql
+  environment:
+    MYSQL_USER: eight
+    MYSQL_PASSWORD: eight
+    MYSQL_ROOT_PASSWORD: eight
+    MYSQL_DATABASE: eight
