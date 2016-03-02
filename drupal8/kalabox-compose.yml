@@ -2,11 +2,12 @@ data:
   image: busybox
   volumes:
     - $KALABOX_APP_ROOT_BIND/files:/media:rw
-    - /certs
-    - /sql
-    - /code
+    - /var/lib/mysql
+    - /var/www/html
 appserver:
-  image: drupal
+  image: drupal:8
+  volumes_from:
+    - data
   links:
     - db:db
   ports:
@@ -15,8 +16,6 @@ db:
   image: mysql
   volumes_from:
     - data
-  volumes:
-    - /sql:/var/lib/mysql
   environment:
     MYSQL_USER: eight
     MYSQL_PASSWORD: eight
